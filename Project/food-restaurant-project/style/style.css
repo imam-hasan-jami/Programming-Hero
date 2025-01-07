@@ -86,3 +86,46 @@
   margin-top: 24px;
 }
 
+#cardbox {
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  /* flex-direction: row; */
+  position: static;
+  width: 691px;
+  height: 128px;
+  margin: 64px auto;
+}
+
+#cardbox .section-title h6 {
+  opacity: 0.6;
+  color: rgb(16, 16, 16);
+  font-family: Work Sans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+#cardbox .section-title h1 {
+  color: rgb(16, 16, 16);
+  font-family: Work Sans;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 64px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+#cardbox .all-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+#cardbox .all-cards .card .card-title {
+  background-color: aqua;
+}
