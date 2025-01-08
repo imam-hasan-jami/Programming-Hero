@@ -266,4 +266,62 @@ main .resume .resume-title {
     font-weight: 700;
     line-height: 48px;
     letter-spacing: 0%;
+    margin-bottom: 30px;
+}
+
+main .resume .resume-container {
+    display: flex;
+    gap: 24px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+main .resume .resume-items-title {
+    color: rgb(71, 71, 71);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 41px;
+    margin-bottom: 30px;
+}
+
+main .resume .resume-degree-title {
+    color: rgb(71, 71, 71);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 34px;
+    margin-bottom: 10px;
+}
+
+main .resume .resume-uni-title {
+    color: rgb(117, 117, 117);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+
+main .resume .resume-description {
+    color: rgb(117, 117, 117);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+main .resume hr {
+    margin: 15px 0;
+    border: 1px solid rgb(209, 209, 209);
+}
+
+main .resume .btn-resume-download {
+    border-radius: 5px;
+    background: rgb(253, 110, 10);
+    border: none;
+    padding: 18px 36px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0%;
+    cursor: pointer;
+    margin-bottom: 30px;
 }
