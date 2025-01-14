@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Design</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .card-container {
+            display: grid;
+            gap: 20px;
+            width: 1000px;
+        }
+
+        .card {
+            height: 300px;
+            width: 100%;
+            border: solid 1px rgb(0, 0, 0, 0.3);
+            border-radius: 5px;
+            background-color: rgb(240, 240, 240);
+            padding: 5px;
+            display: grid;
+            grid-template-areas:
+                "img title"
+                "img content"
+                "img button";
+        }
+
+        .card img {
+            grid-area: img;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .card h2 {
+            grid-area: title;
+            margin-top: 0px;
+        }
+
+        .card p {
+            grid-area: content;
+            margin-top: -55px;
+        }
+
+        .card button {
+            grid-area: button;
+            height: 35px;
+            width: 85px;
+            margin-top: -45px;
+            background-color: rgb(47, 120, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 350px;
+            height: 300px;
+        }
+
+        @media screen and (max-width: 576px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                width: 500px;
+                height: auto;
+
+                grid-template-areas:
+                    "img"
+                    "title"
+                    "content"
+                    "button";
+            }
+
+            .card img {
+                margin: auto;
+            }
+
+            .card h2 {
+                margin-top: 10px;
+            }
+
+            .card p {
+                margin-top: 0;
+            }
+
+            .card button {
+                margin-top: 0;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="card-container">
+        <div class="card card-1">
+            <img src="https://secretrecipebd.com/wp-content/uploads/2020/10/BEEF-BURGER-WITH-MEAL-.jpeg" alt="">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum aliquam voluptatum, odit sunt, nostrum
+                laudantium error esse ea eaque quo rem repellendus, alias debitis natus. Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. A esse veniam vero nulla omnis eum voluptas praesentium. Quos accusamus ad
+                aut cum maiores delectus, blanditiis qui obcaecati illum vel. Fuga illo quos iste earum dolorum quidem
+                atque veritatis voluptate laborum voluptatum, animi id aliquid nam voluptates, hic assumenda repellat
+                neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores vitae est doloribus provident
+                quaerat explicabo?</p>
+            <button>Read More</button>
+        </div>
+        <div class="card card-2">
+            <img src="https://c.ndtvimg.com/2020-01/a39okhfk_620_625x300_21_January_20.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum aliquam voluptatum, odit sunt, nostrum
+                laudantium error esse ea eaque quo rem repellendus, alias debitis natus. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Quibusdam itaque possimus officia? Est et pariatur rerum in. Eum similique
+                inventore est, voluptas culpa excepturi deserunt minus totam facere molestias neque. Iste repellat
+                minima blanditiis! Facere, cupiditate repellendus et quaerat dolorem laboriosam tenetur, excepturi,
+                autem vitae voluptatum similique deserunt suscipit veniam. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Excepturi, quaerat.</p>
+            <button>Read More</button>
+        </div>
+    </section>
+</body>
+
+</html>
