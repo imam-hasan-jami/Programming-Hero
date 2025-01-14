@@ -1,0 +1,64 @@
+<!-- tried basic grid layout with 2 columns and 1 row and then made it responsive for mobile devices. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice-1</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            column-gap: 10px;
+            height: 70vh;
+        }
+
+        .container .left {
+            border-radius: 10px;
+            background-color: #b0b0b0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .right {
+            border-radius: 10px;
+            background-color: #d4cfb8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 3fr;
+                row-gap: 10px;
+            }
+
+            .container .left {
+                grid-column: 1/1;
+            }
+
+            .container .right {
+                grid-column: 1/1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            LEFT
+        </div>
+        <div class="right">
+            RIGHT
+        </div>
+    </div>
+</body>
+
+</html>
