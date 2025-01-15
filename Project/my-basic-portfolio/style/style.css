@@ -412,9 +412,32 @@ footer button {
 
 @media screen and (max-width: 576px) {
 
+    main {
+        width: 576px;
+    }
+
+    main .about {
+        background-color: rgb(255, 248, 243);
+        border-radius: 0;
+        width: calc(100% - 40px);
+        padding: 50px 20px 50px 20px;
+        margin: 50px auto 0 auto;
+    }
+
+    main .about .about-items {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    main .about .about-inner-box {
+        background-color: rgb(255, 248, 243);
+    }
+
     .skills,
     .resume {
-        width: 576px;
+        width: 100%;
         margin: 0 0;
         padding: 0px;
     }
@@ -437,7 +460,7 @@ footer button {
     }
 
     footer {
-        width: 576px;
+        width: 100%;
         padding: 0 20px;
         margin: -10px 0;
         flex-direction: column;
@@ -464,7 +487,8 @@ footer button {
         align-items: center;
     }
 
-    footer .form input, textarea {
+    footer .form input,
+    textarea {
         width: 100%;
     }
 }
