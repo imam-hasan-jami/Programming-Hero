@@ -411,6 +411,59 @@ footer button {
 }
 
 @media screen and (max-width: 576px) {
+    header {
+        width: 576px;
+        height: auto;
+        background-size: 8.5%, 100%;
+        background-position: bottom left 10px, bottom center;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav h3 {
+        margin: 15px 0 0 0;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 25px 0 0 0;
+    }
+
+    header .banner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header .banner-content {
+        margin: 20px 0 0 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header .banner-content .download {
+        margin: 30px 0 0 0;
+    }
+
+    header .banner-content h1 {
+        font-size: 50px;
+    }
+
+    header .banner img {
+        width: 70%;
+        height: auto;
+        margin-top: 60px;
+        margin-left: 150px;
+    }
 
     main {
         width: 576px;
@@ -421,7 +474,7 @@ footer button {
         border-radius: 0;
         width: calc(100% - 40px);
         padding: 50px 20px 50px 20px;
-        margin: 50px auto 0 auto;
+        margin-top: 0;
     }
 
     main .about .about-items {
@@ -435,11 +488,18 @@ footer button {
         background-color: rgb(255, 248, 243);
     }
 
-    .skills,
-    .resume {
-        width: 100%;
-        margin: 0 0;
-        padding: 0px;
+    main .skills {
+        /* margin-top: 30px; */
+        margin: 30px auto 0 auto;
+    }
+
+    main .resume {
+        /* margin-top: 60px; */
+        margin: 60px auto 0 auto;
+    }
+
+    main .resume .resume-title {
+        margin-bottom: 20px;
     }
 
     .skills .skills-container,
@@ -449,7 +509,16 @@ footer button {
         align-items: center;
     }
 
+    main .skills .skills-overview {
+        margin: 20px 30px 40px;
+    }
+
+    main .resume .resume-container {
+        margin-bottom: 20px;
+    }
+
     .resume .resume-column {
+        margin: 0 20px;
         padding: 20px;
     }
 
@@ -459,10 +528,17 @@ footer button {
         align-items: center;
     }
 
+    main .resume .btn-resume-download {
+        margin-bottom: 40px;
+    }
+
     footer {
-        width: 100%;
-        padding: 0 20px;
-        margin: -10px 0;
+        width: calc(100% - 480px);
+        height: 980px;
+        padding: 0 290px;
+        margin: 0 0;
+        /* padding: 0 20px; */
+        /* margin: -10px 0; */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -470,6 +546,7 @@ footer button {
     }
 
     footer .footer-column {
+        margin-top: 30px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -477,7 +554,13 @@ footer button {
     }
 
     footer .footer-column p {
+        /* width: 75%; */
         text-align: center;
+        margin-bottom: 20px;
+    }
+
+    footer .social-icons {
+        margin-top: 0px;
     }
 
     footer .form {
