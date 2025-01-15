@@ -533,14 +533,14 @@ footer button {
     }
 
     footer {
-        width: 100%;
+        width: 576px;
         height: auto;
         margin: 0 0;
         padding: 35px 20px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 40px;
+        gap: 20px;
     }
 
     footer .footer-column {
@@ -549,6 +549,7 @@ footer button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 25px;
     }
 
     footer .footer-column .section-description {
