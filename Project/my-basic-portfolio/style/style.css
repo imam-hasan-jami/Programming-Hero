@@ -411,14 +411,27 @@ footer button {
 }
 
 @media screen and (max-width: 576px) {
-    .skills {
+
+    .skills,
+    .resume {
         width: 576px;
         margin: 0 0;
         padding: 0px;
     }
 
-    .skills .skills-container {
+    .skills .skills-container,
+    .resume .resume-container {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resume .resume-column {
+        padding: 20px;
+    }
+
+    .resume .resume-column .resume-items-title {
+        display: flex;
         justify-content: center;
         align-items: center;
     }
