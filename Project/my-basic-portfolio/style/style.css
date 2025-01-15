@@ -153,7 +153,7 @@ header .banner img {
 }
 
 main {
-    max-width: 1140px;
+    width: 1280px;
     height: 550px;
     margin: 0 auto;
     flex: 1;
@@ -404,4 +404,22 @@ footer button {
     line-height: 27px;
     text-align: center;
     cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 576px) {
+    .skills {
+        width: 576px;
+        margin: 0 0;
+        padding: 0px;
+    }
+
+    .skills .skills-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
