@@ -37,7 +37,7 @@
 <body>
     <header class="bg-[#FFFBF0]">
         <!-- nav-bar -->
-        <div class="max-w-[375px] md:max-w-[1440px] mx-auto  flex justify-between pt-[40px] pb-[20px]">
+        <div class="max-w-[375px] md:max-w-[1440px] mx-auto flex justify-between pt-8 pb-14 md:pt-[40px] md:pb-[20px]">
             <!-- nav-bar brand -->
             <div class="relative flex lg:items-center gap-2 lg:gap-[10px]">
                 <svg class="absolute -top-32 left-90 hidden md:block" width="150.000000" height="150.000000"
@@ -921,28 +921,30 @@
                 </ul>
             </div>
             <!-- menu icon for mobile devices -->
-             <div class="w-8 h-8 md:hidden">
+            <div class="w-8 h-8 md:hidden">
                 <i class="fa-solid fa-bars"></i>
-             </div>
+            </div>
         </div>
 
         <!-- banner section -->
-        <div class="max-w-[1440px] mx-auto flex justify-between items-center pb-32">
+        <div
+            class="max-w-[375px] md:max-w-[1440px] mx-auto flex flex-col gap-[45px] md:gap-0 md:flex-row md:justify-between md:items-center pb-14 md:pb-32">
             <!-- banner texts -->
             <div>
-                <h2 class="font-bebas text-[5rem]/[6rem] text-[#363958]"><span class="text-[#FABE4C]">Be the
+                <h2 class="font-bebas text-6xl md:text-[5rem]/[6rem] text-[#363958]"><span class="text-[#FABE4C]">Be the
                         Penguins</span> <br>
                     of Winter</h2>
-                <p class="font-roboto text-[#3E3E3E]">Lorem Ipsum is simply dummy text of the printing <br>
+                <p class="font-roboto w-[295px] md:w-[360px] text-base text-[#3E3E3E]">Lorem Ipsum is simply dummy text
+                    of the printing
                     and typesetting industry.</p>
                 <button
-                    class="font-roboto text-base text-white px-[32px] py-[16px] mt-2 rounded-lg bg-linear-to-r from-[#A4BC46] to-[#85A019]"><i
+                    class="font-roboto text-base text-white px-[32px] py-[16px] mt-6 md:mt-2 rounded-lg bg-linear-to-r from-[#A4BC46] to-[#85A019]"><i
                         class="fa-solid fa-cart-shopping mr-2"></i> Buy
                     Now</button>
             </div>
             <!-- banner image section -->
             <div>
-                <img class="mr-32" src="./images/model.png" alt="">
+                <img class="md:mr-32 w-[360px] md:w-[550px]" src="./images/model.png" alt="">
             </div>
         </div>
     </header>
