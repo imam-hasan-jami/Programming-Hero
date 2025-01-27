@@ -37,11 +37,12 @@
 <body>
     <header class="bg-[#FFFBF0]">
         <!-- nav-bar -->
-        <div class="max-w-[1440px] mx-auto flex justify-between pt-[40px] pb-[20px]">
+        <div class="max-w-[375px] md:max-w-[1440px] mx-auto  flex justify-between pt-[40px] pb-[20px]">
             <!-- nav-bar brand -->
-            <div class="relative flex items-center gap-[10px]">
-                <svg class="absolute -top-32 left-90" width="150.000000" height="150.000000" viewBox="0 0 150 150"
-                    fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <div class="relative flex lg:items-center gap-2 lg:gap-[10px]">
+                <svg class="absolute -top-32 left-90 hidden md:block" width="150.000000" height="150.000000"
+                    viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
                     <desc>
                         Created with Pixso.
                     </desc>
@@ -247,8 +248,9 @@
                     <circle id="Ellipse 100" cx="147.916473" cy="147.916504" r="2.083458" fill="#FFE2AA"
                         fill-opacity="1.000000" />
                 </svg>
-                <svg width="55.936157" height="39.266357" viewBox="0 0 55.9362 39.2664" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="w-[38px] h-[26px] md:w-[56px] md:h-[40px]" width="55.936157" height="39.266357"
+                    viewBox="0 0 55.9362 39.2664" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
                     <desc>
                         Created with Pixso.
                     </desc>
@@ -905,12 +907,12 @@
                             fill="#1A1A5A" fill-opacity="1.000000" fill-rule="nonzero" />
                     </g>
                 </svg>
-                <h3 class="font-montserrat font-bold text-[1.6rem] text-[#363958]"><span
+                <h3 class="font-montserrat font-bold text-base md:text-[1.6rem] text-[#363958]"><span
                         class="text-[#A4BC46]">Penguin</span> Fashion
                 </h3>
             </div>
             <!-- nav-bar links -->
-            <div>
+            <div class="hidden md:flex">
                 <ul class="flex gap-[60px]">
                     <li><a class="text-[#3C3C3C]" href="#">Home</a></li>
                     <li><a class="text-[#3C3C3C]" href="#">Product</a></li>
@@ -918,6 +920,10 @@
                     <li><a class="text-[#3C3C3C]" href="#">Contact Us</a></li>
                 </ul>
             </div>
+            <!-- menu icon for mobile devices -->
+             <div class="w-8 h-8 md:hidden">
+                <i class="fa-solid fa-bars"></i>
+             </div>
         </div>
 
         <!-- banner section -->
