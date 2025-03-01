@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+
+    <style>
+        .comments {
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event, addEeventListener, Even bubble</h1>
+
+    <!-- method-1 -->
+    <button onclick="console.log(10)">Click Me</button>
+    <button onclick="console.log('This is a string')">Click Me String</button>
+
+    <br>
+
+    <!-- method-2 || check js file too -->
+    <button onclick="makeYellow()">Make Yellow</button>
+    <button onclick="makePink()">Make Pink</button>
+
+    <br>
+
+    <!-- method-3 || check js file too -->
+    <button id="btn-make-purple">Make Purple</button>
+
+    <br>
+
+    <!-- method-4 || check js file too -->
+    <button id="btn-make-green">Make Red</button>
+
+    <br>
+
+    <!-- Change the text when button is pressed -->
+    <h1 id="demo-text">This is a demo text.</h1>
+    <button id="btn-update-demo-text">Update Demo Text</button>
+
+    <br>
+
+    <!-- Change the text when button is pressed -->
+    <h3 id="user-title">No User</h3>
+    <button id="btn-login">Login</button>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Change the text according to the input when button is pressed -->
+    <p id="para-name">Name will be shown here</p>
+    <input id="input-name" placeholder="Enter your name" type="text">
+    <button id="btn-update">Update</button>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Comment Box -->
+    <h1>Comment Box</h1>
+    <div id="comment-container">
+        <p class="comments">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, porro numquam animi, ab
+            soluta minus
+            quibusdam eius dolor eligendi consequatur aspernatur nam dolorem fugit officiis exercitationem asperiores
+            iste ut similique.</p>
+        <p class="comments">Molestiae natus libero rerum amet nisi ipsam quibusdam voluptate porro veritatis. Tenetur
+            unde soluta odit
+            nostrum amet molestias, commodi dolor repellendus nesciunt enim ducimus deleniti iure, quibusdam magnam
+            inventore accusamus?</p>
+        <p class="comments">Adipisci alias perspiciatis voluptas corporis, maiores ex quos illum eius nobis id, soluta
+            cum. Excepturi
+            necessitatibus in neque? Totam nobis pariatur hic sed eum ad perspiciatis ipsam rerum, excepturi voluptates.
+        </p>
+    </div>
+    <textarea id="comment-box" style="margin: 10px;" cols="70" rows="5"></textarea>
+    <br>
+    <button id="btn-post-comment" style="margin-left: 10px;">Post Comment</button>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>Github style delete</h1>
+    <input id="input-delete" placeholder="Type delete" type="text">
+    <button id="btn-delete" disabled>Delete</button>
+
+    <script src="./event.js"></script>
+</body>
+
+</html>
