@@ -1,9 +1,9 @@
-document.getElementById("btn-addmoney").addEventListener("click", function (event) {
+document.getElementById("btn-cashout").addEventListener("click", function (event) {
     event.preventDefault();
 
     document.getElementById("invalid-div").innerHTML = "";
 
-    let amount = document.getElementById("addmoney-amount").value;
+    let amount = document.getElementById("cashout-amount").value;
     let convertedAmount = parseFloat(amount);
 
     if (isNaN(convertedAmount)) {
@@ -33,11 +33,18 @@ document.getElementById("btn-addmoney").addEventListener("click", function (even
     let convertedPinNumber = parseInt(pinNumber);
 
     if (convertedPinNumber === 1234) {
-
-        let sum = convertedMainBalance + convertedAmount;
-        document.getElementById("main-balance").innerText = sum;
-        document.getElementById("addmoney-amount").value = "";
-
+        if (convertedAmount > convertedMainBalance) {
+            let invalidDiv = document.getElementById("invalid-div");
+            let invalidMessage = document.createElement("div");
+            invalidMessage.innerHTML = `<div class="font-poppins text-red-500 font-semibold text-center mt-10">
+                    Insufficient Balance
+                </div>`;
+            invalidDiv.appendChild(invalidMessage);
+        } else {
+            let sub = convertedMainBalance - convertedAmount;
+            document.getElementById("main-balance").innerText = sub;
+            document.getElementById("cashout-amount").value = "";
+        }
     } else {
         let invalidDiv = document.getElementById("invalid-div");
         let invalidMessage = document.createElement("div");
