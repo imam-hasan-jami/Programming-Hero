@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Banking App</title>
+
+    <!-- tailwind cdn -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- css -->
+    <style>
+        body {
+            background-color: #1a1a1a;
+        }
+
+        .font-poppins {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="max-w-[500px] mx-auto bg-gray-100 h-screen">
+        <!-- landing page -->
+        <section>
+
+            <!-- logo + name -->
+            <div>
+                <img class="w-36 pt-26 mx-auto" src="./assets/mobile-banking-logo.png" alt="">
+                <h2 class="font-poppins font-semibold text-center text-3xl pt-6">Mobile Banking App</h2>
+                <h6 class="font-poppins font-light text-center text-sm pl-39 pt-3">by Imam Hasan Jami</h6>
+            </div>
+
+            <!-- login -->
+            <div class="card-body ml-16 mt-10">
+                <fieldset class="fieldset">
+                    <label class="fieldset-label">Phone Number</label>
+                    <input type="number" class="input" value="01627003189" placeholder="Enter your phone number" />
+                    <label class="fieldset-label">PIN</label>
+                    <input type="number" class="input" value="1234" placeholder="Enter your PIN" />
+                    <button class="btn mt-4 bg-purple-500 text-white w-81">Login</button>
+                </fieldset>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
