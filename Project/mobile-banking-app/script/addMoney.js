@@ -11,9 +11,22 @@ document.getElementById("btn-addmoney").addEventListener("click", function (even
     let convertedPinNumber = parseInt(pinNumber);
 
     if (convertedPinNumber === 1234) {
-        let sum = convertedMainBalance + convertedAmount;
-        document.getElementById("main-balance").innerText = sum;
-        document.getElementById("amount").value = "";
+
+        let inputAmount = document.getElementById("amount").value;
+
+        if (!isNaN(inputAmount)) {
+            let sum = convertedMainBalance + convertedAmount;
+            document.getElementById("main-balance").innerText = sum;
+            document.getElementById("amount").value = "";
+        } else {
+            let invalidDiv = document.getElementById("invalid-div");
+            let invalidMessage = document.createElement("div");
+            invalidMessage.innerHTML = `<div class="font-poppins text-red-500 font-semibold text-center mt-10">
+                    Invalid Amount
+                </div>`
+            invalidDiv.appendChild(invalidMessage);
+        }
+
     } else {
         let invalidDiv = document.getElementById("invalid-div");
         let invalidMessage = document.createElement("div");
