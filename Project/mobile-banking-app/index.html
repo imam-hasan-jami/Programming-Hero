@@ -44,18 +44,26 @@
                 <h6 class="font-poppins font-light text-center text-sm pl-39 pt-3">by Imam Hasan Jami</h6>
             </div>
 
+            <!-- div for showing invalid message -->
+            <div id="invalid-div">
+
+            </div>
+
             <!-- login -->
-            <div class="card-body ml-16 mt-10">
+            <div class="card-body ml-16">
                 <fieldset class="fieldset">
                     <label class="fieldset-label">Phone Number</label>
-                    <input type="number" class="input" value="01627003189" placeholder="Enter your phone number" />
+                    <input id="account-number" type="number" class="input" value="01627003189"
+                        placeholder="Enter your phone number" />
                     <label class="fieldset-label">PIN</label>
-                    <input type="number" class="input" value="1234" placeholder="Enter your PIN" />
-                    <button class="btn mt-4 bg-purple-500 text-white w-81">Login</button>
+                    <input id="pin-number" type="number" class="input" value="1234" placeholder="Enter your PIN" />
+                    <button id="btn-login" class="btn mt-4 bg-purple-500 text-white w-81">Login</button>
                 </fieldset>
             </div>
         </section>
     </main>
+
+    <script src="./script/login.js"></script>
 </body>
 
 </html>
