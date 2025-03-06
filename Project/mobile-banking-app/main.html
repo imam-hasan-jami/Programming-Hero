@@ -34,8 +34,106 @@
 
 <body>
     <main class="max-w-[500px] mx-auto bg-gray-100 h-screen">
-        
+
+        <!-- home page -->
+        <section>
+
+            <!-- balance -->
+            <div class="font-poppins font-semibold flex flex-col items-center pt-10">
+                <h3 class="text-xl">Available Balance</h3>
+                <h3 class="text-3xl bg-purple-300 py-2 px-4 rounded-md">$<span id="main-balance">5000</span></h3>
+            </div>
+
+            <!-- options -->
+            <div class="grid grid-cols-3 gap-3 mt-10">
+                <div id="add-money-box" class="bg-purple-500 p-5 rounded-lg ml-2 cursor-pointer">
+                    <h3 class="text-xl font-semibold text-white mt-3 ml-1">Add Money</h3>
+                </div>
+                <div id="cash-out-box" class="bg-purple-500 p-5 rounded-lg cursor-pointer">
+                    <h3 class="text-xl font-semibold text-white mt-3 ml-3">Cash Out</h3>
+                </div>
+                <div id="transaction-history-box" class="bg-purple-500 p-5 rounded-lg mr-2 cursor-pointer">
+                    <h3 class="text-xl font-semibold text-white">Transaction History</h3>
+                </div>
+            </div>
+        </section>
+
+        <div id="invalid-div">
+
+        </div>
+
+        <!-- Add Money -->
+        <section id="add-money">
+            <div class="mt-10 w-80 mx-auto">
+                <h1 class="text-2xl font-semibold py-7 text-center">Add Money</h1>
+                <select id="allbank" class="select">
+                    <option disabled selected>Select one banking option</option>
+                    <option value="bKash">bKash</option>
+                    <option value="Nogod">Nogod</option>
+                    <option value="Rocket">Rocket</option>
+                </select>
+                <label class="fieldset-label text-sm mt-4">Phone Number</label>
+                <input id="account-number" type="number" class="input" value="01627003189"
+                    placeholder="Enter your phone number" />
+                <label class="fieldset-label text-sm mt-4">Amount</label>
+                <input id="amount" type="number" class="input" placeholder="e.g: 500" />
+                <label class="fieldset-label text-sm mt-4">PIN</label>
+                <input id="pin-number" type="number" class="input" value="1234" placeholder="Enter your PIN" />
+                <button id="btn-addmoney" class="btn mt-4 bg-purple-500 text-white w-81">Add Money</button>
+            </div>
+        </section>
+
+        <!-- Cash Out -->
+        <section id="cash-out">
+            <div class="mt-10 w-80 mx-auto">
+                <h1 class="text-2xl font-semibold py-7 text-center">Cash Out</h1>
+                <label class="fieldset-label text-sm mt-4">Phone Number</label>
+                <input id="account-number" type="number" class="input" value="01627003189"
+                    placeholder="Enter your phone number" />
+                <label class="fieldset-label text-sm mt-4">Amount</label>
+                <input id="amount" type="number" class="input" placeholder="e.g: 500" />
+                <label class="fieldset-label text-sm mt-4">PIN</label>
+                <input id="pin-number" type="number" class="input" value="1234" placeholder="Enter your PIN" />
+                <button id="btn-cashout" class="btn mt-4 bg-purple-500 text-white w-81">Cash Out</button>
+            </div>
+        </section>
+
+        <!-- Transaction History -->
+        <section id="transaction-history">
+            <div class="mt-10 w-80 mx-auto">
+                <h1 class="text-2xl font-semibold py-7 text-center">Transaction History</h1>
+                <!-- <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>500</td>
+                            <td>12-12-2021</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1000</td>
+                            <td>12-12-2021</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2000</td>
+                            <td>12-12-2021</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+        </section>
     </main>
+
+    <script src="./script/toggle.js"></script>
+    <script src="./script/addMoney.js"></script>
 </body>
 
 </html>
