@@ -1,3 +1,4 @@
+//Ring Buttons
 const ringButtons = document.querySelectorAll(".ring-button");
 
 for (let i = 0; i < ringButtons.length; i++) {
@@ -16,5 +17,20 @@ for (let i = 0; i < ringButtons.length; i++) {
 
         const productImage = document.getElementById("product-image");
         productImage.src = `../images/${color}.png`;
+    })
+}
+
+//Size Buttons
+const sizeButtons = document.querySelectorAll(".size-button");
+
+for (let i = 0; i < sizeButtons.length; i++) {
+    const sizeBtn = sizeButtons[i];
+    sizeBtn.addEventListener("click", function (event) {
+
+        for (let j = 0; j < sizeButtons.length; j++) {
+            sizeButtons[j].classList.remove("border-purple-600");
+        }
+
+        event.target.classList.add("border-purple-600");
     })
 }
