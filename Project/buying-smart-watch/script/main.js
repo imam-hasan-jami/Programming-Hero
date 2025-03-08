@@ -20,6 +20,27 @@ for (let i = 0; i < ringButtons.length; i++) {
     })
 }
 
+//Ring Buttons with onclick function
+// function selectBandColor(color) {
+//     const colors = ["purple", "teal", "cyan", "gray"];
+
+//     for (let i = 0; i < colors.length; i++) {
+//         const button = document.getElementById(colors[i] + "-color");
+
+//         const element = colors[i];
+//         if (color === element) {
+//             button.classList.add("border-purple-600");
+//             button.classList.remove("border-gray-300");
+//         } else {
+//             button.classList.remove("border-purple-600");
+//             button.classList.add("border-gray-300");
+//         }
+//     }
+    
+//     const productImage = document.getElementById("product-image");
+//     productImage.src = `../images/${color}.png`;
+// }
+
 //Size Buttons
 const sizeButtons = document.querySelectorAll(".size-button");
 
@@ -36,17 +57,18 @@ for (let i = 0; i < sizeButtons.length; i++) {
 }
 
 //Size Buttons with onclick function
-function selectWristSize(size) {
-    const sizes = ["S", "M", "L", "XL"];
+// function selectWristSize(size) {
+//     const sizes = ["S", "M", "L", "XL"];
 
-    for (let i = 0; i < sizes.length; i++) {
-        const button = document.getElementById("size-" + sizes[i]);
+//     for (let i = 0; i < sizes.length; i++) {
+//         const button = document.getElementById("size-" + sizes[i]);
 
-        const element = sizes[i];
-        if (size === element) {
-            button.classList.add("border-purple-600");
-        } else {
-            button.classList.remove("border-purple-600");
-        }
-    }
-}
+//         const element = sizes[i];
+//         if (size === element) {
+//             button.classList.add("border-purple-600");
+//         } else {
+//             button.classList.remove("border-purple-600");
+//         }
+//     }
+// }
+
