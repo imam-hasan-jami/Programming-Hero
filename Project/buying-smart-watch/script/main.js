@@ -85,3 +85,19 @@ for (let i = 0; i < quantityElements.length; i++) {
         quantityElement.innerText = newQuantity;
     })
 }
+
+// Quantity adding to the cart
+let cartCount = 0;
+document.getElementById("add-to-cart").addEventListener("click", function () {
+    const quantity = parseInt(document.getElementById("quantity").innerText);
+
+    if (quantity > 0) {
+        document.getElementById("checkout-container").classList.remove("hidden");
+
+        cartCount = cartCount + quantity;
+        document.getElementById("cart-count").innerText = cartCount;
+
+    } else {
+        alert("Invalid Quantity!");
+    }
+})
