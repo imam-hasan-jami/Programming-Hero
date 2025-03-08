@@ -36,7 +36,7 @@ for (let i = 0; i < ringButtons.length; i++) {
 //             button.classList.add("border-gray-300");
 //         }
 //     }
-    
+
 //     const productImage = document.getElementById("product-image");
 //     productImage.src = `../images/${color}.png`;
 // }
@@ -72,3 +72,16 @@ for (let i = 0; i < sizeButtons.length; i++) {
 //     }
 // }
 
+//Quantity Buttons
+const quantityElements = document.querySelectorAll(".quantity-button");
+for (let i = 0; i < quantityElements.length; i++) {
+    const button = quantityElements[i];
+
+    button.addEventListener("click", function (event) {
+        const amount = event.target.innerText === "+" ? 1 : -1;
+        const quantityElement = document.getElementById("quantity");
+        const currentQuantity = parseInt(quantityElement.innerText);
+        const newQuantity = Math.max(0, currentQuantity + amount);
+        quantityElement.innerText = newQuantity;
+    })
+}
