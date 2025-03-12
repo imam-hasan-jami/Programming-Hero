@@ -7,13 +7,21 @@ function loadCategories() {
 function loadVideos() {
     fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
         .then((response) => response.json())
-        .then((data) => displayVideos(data.videos));
+        .then((data) => {
+            document.getElementById("btn-all").classList.add("active");
+            displayVideos(data.videos);
+        });
 }
 
 function loadCategoryVideos(id) {
     const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
 
-    fetch(url).then((response) => response.json()).then((data) => displayVideos(data.category));
+    fetch(url).then((response) => response.json()).then((data) => {
+        const clickedButton = document.getElementById(`btn-${id}`);
+        clickedButton.classList.add("active");
+        
+        displayVideos(data.category);
+    });
 }
 
 function displayCategories(categories) {
