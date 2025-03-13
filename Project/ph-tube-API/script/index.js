@@ -111,7 +111,7 @@ function displayVideos(videos) {
         videoCard.innerHTML = `
             <div class="card bg-base-100">
                 <figure class="relative">
-                    <img class="w-full h-[150px] object-cover" src="${video.thumbnail}" alt="Shoes" />
+                    <img class="w-full h-[240px] object-cover" src="${video.thumbnail}" alt="Shoes" />
                     <span
                     class="absolute bottom-2 right-2 text-sm rounded text-white bg-black px-2">3hrs 56 min ago</span>
                 </figure>
