@@ -10,12 +10,33 @@
             background-color: black;
             color: white;
         }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
     </style>
 </head>
 
 <body>
 
-    <button onclick="handleAddToStorage()">Click Me</button>
+    <!-- <button onclick="handleAddToStorage()">Click Me</button> -->
+
+    <div class="input-container">
+        <input style="padding: 8px;" id="product-name" type="text" placeholder="Product Name">
+        <input style="padding: 8px;" id="product-quantity" type="text" placeholder="Product Quantity">
+        <button style="padding: 8px; cursor: pointer;" id="add-to-cart" onclick="handleAddToCart()">Add To Cart</button>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <ul id="product-container">
+
+        </ul>
+    </div>
 
     <script src="./index.js"></script>
 </body>
