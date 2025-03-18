@@ -1,11 +1,12 @@
+// alternative of PropTypes as this library was removed from React core library
 
-function Student(props) {
+function Student({name = "Guest", age = 0, isStudent = false}) {
     return(
         <>
             <div className="student">
-                <p>Name: {props.name}</p>
-                <p>Age: {props.age}</p>
-                <p>isStudent: {props.isStudent ? "Yes" : "No"}</p>
+                <p>Name: {name}</p>
+                <p>Age: {age}</p>
+                <p>isStudent: {isStudent ? "Yes" : "No"}</p>
             </div>
         </>
     )
