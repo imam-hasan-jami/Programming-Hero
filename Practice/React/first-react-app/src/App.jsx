@@ -1,6 +1,9 @@
 import Student from './Student'
+import ToDo from './ToDo';
 
 function App() {
+
+  const time = 10;
 
     return (
       <>
@@ -18,6 +21,9 @@ function App() {
 
         {/* using array destructuring */}
         <Player name="Cristiano Ronaldo" goals="930" />
+
+        <ToDo task="Pray Tahajjud" time={time} isDone={false} />
+        <ToDo task="Eat Seheri" time={30} isDone={true} />
       </>
     )
 }
