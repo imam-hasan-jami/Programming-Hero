@@ -15,6 +15,9 @@ function App() {
         <Sport name="Football" format="90min" />
         <Pet />
         <Device name="iPhone" />
+
+        {/* using array destructuring */}
+        <Player name="Cristiano Ronaldo" goals="930" />
       </>
     )
 }
@@ -41,6 +44,16 @@ function Device(props) {
     <>
       <p>My primary device is {props.name}</p>
     </>
+  )
+}
+
+// using array destructuring instead of props object
+function Player({name, goals}) {
+  return(
+    <div>
+      <h3>Player Name: {name}</h3>
+      <p>Goals Scored: {goals}</p>
+    </div>
   )
 }
 
