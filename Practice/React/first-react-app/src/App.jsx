@@ -1,6 +1,7 @@
 import Student from './Student'
 import ToDo from './ToDo';
 import Superstar from './Superstar';
+import Library from './Library';
 
 function App() {
 
@@ -10,6 +11,13 @@ function App() {
     {id:1, name:"Ronaldo", age: 40},
     {id:2, name:"Palmer", age: 20},
     {id:3, name:"Bellingham", age: 21}
+  ];
+
+  const books = [
+    {id: 1, name: "Harry Potter", price: 300},
+    {id: 2, name: "Game of Thrones", price: 700},
+    {id: 3, name: "Lord of Rings", price: 450},
+    {id: 4, name: "AOT Manga", price: 1050}
   ];
 
     return (
@@ -32,9 +40,11 @@ function App() {
         {/* <ToDo task="Pray Tahajjud" time={time} isDone={false} />
         <ToDo task="Eat Seheri" time={30} isDone={true} /> */}
 
-        {
+        {/* {
           superstars.map(superstar => <Superstar key={superstar.id} superstar={superstar}/>)
-        }
+        } */}
+
+        <Library books={books}/>
       </>
     )
 }
