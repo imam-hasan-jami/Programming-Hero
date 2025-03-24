@@ -2,6 +2,7 @@ import Student from './Student'
 import ToDo from './ToDo';
 import Superstar from './Superstar';
 import Library from './Library';
+import Counter from './Counter';
 
 function App() {
 
@@ -44,7 +45,9 @@ function App() {
           superstars.map(superstar => <Superstar key={superstar.id} superstar={superstar}/>)
         } */}
 
-        <Library books={books}/>
+        {/* <Library books={books}/> */}
+
+        <Counter/>
       </>
     )
 }
