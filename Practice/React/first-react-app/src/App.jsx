@@ -3,6 +3,7 @@ import ToDo from './ToDo';
 import Superstar from './Superstar';
 import Library from './Library';
 import Counter from './Counter';
+import Batsman from './Batsman';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         {/* <Library books={books}/> */}
 
         <Counter/>
+        <Batsman/>
       </>
     )
 }
