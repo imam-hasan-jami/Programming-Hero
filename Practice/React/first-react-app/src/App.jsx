@@ -7,6 +7,7 @@ import Batsman from './Batsman';
 import Users from './Users';
 import Friends from './Friends';
 import { Suspense } from 'react';
+import Posts from './Posts';
 
   // Users component
   const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
@@ -18,9 +19,16 @@ import { Suspense } from 'react';
     return response.json();
   }
 
+  // Posts component
+  const fetchPosts = async() => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    return response.json();
+  }
+
 function App() {
 
   const friendsPromise = fetchFriends();
+  const postsPromise = fetchPosts();
 
   const time = 10;
 
@@ -70,8 +78,12 @@ function App() {
           <Users fetchUsers={fetchUsers} />
         </Suspense> */}
 
-        <Suspense fallback={<h4>Friends Are Loading</h4>}>
+        {/* <Suspense fallback={<h4>Friends Are Loading</h4>}>
           <Friends friendsPromise={friendsPromise} />
+        </Suspense> */}
+
+        <Suspense fallback={<h4>Posts Are Loading</h4>}>
+          <Posts postsPromise={postsPromise} />
         </Suspense>
       </>
     )
