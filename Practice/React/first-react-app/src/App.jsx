@@ -4,6 +4,8 @@ import Superstar from './Superstar';
 import Library from './Library';
 import Counter from './Counter';
 import Batsman from './Batsman';
+import Users from './Users';
+import { Suspense } from 'react';
 
 function App() {
 
@@ -21,6 +23,10 @@ function App() {
     {id: 3, name: "Lord of Rings", price: 450},
     {id: 4, name: "AOT Manga", price: 1050}
   ];
+
+  // Users component
+  const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json());
 
     return (
       <>
@@ -48,8 +54,12 @@ function App() {
 
         {/* <Library books={books}/> */}
 
-        <Counter/>
-        <Batsman/>
+        {/* <Counter/> */}
+        {/* <Batsman/> */}
+
+        <Suspense fallback={<h4>Users Are Loading</h4>}>
+          <Users fetchUsers={fetchUsers} />
+        </Suspense>
       </>
     )
 }
