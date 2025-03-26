@@ -6,8 +6,9 @@ import Counter from './Counter';
 import Batsman from './Batsman';
 import Users from './Users';
 import Friends from './Friends';
-import { Suspense } from 'react';
 import Posts from './Posts';
+import Players from './Players';
+import { Suspense } from 'react';
 
   // Users component
   const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
@@ -82,9 +83,11 @@ function App() {
           <Friends friendsPromise={friendsPromise} />
         </Suspense> */}
 
-        <Suspense fallback={<h4>Posts Are Loading</h4>}>
+        {/* <Suspense fallback={<h4>Posts Are Loading</h4>}>
           <Posts postsPromise={postsPromise} />
-        </Suspense>
+        </Suspense> */}
+
+        <Players/>
       </>
     )
 }
