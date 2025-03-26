@@ -5,9 +5,22 @@ import Library from './Library';
 import Counter from './Counter';
 import Batsman from './Batsman';
 import Users from './Users';
+import Friends from './Friends';
 import { Suspense } from 'react';
 
+  // Users component
+  const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json());
+
+  // Friends component
+  const fetchFriends = async() => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    return response.json();
+  }
+
 function App() {
+
+  const friendsPromise = fetchFriends();
 
   const time = 10;
 
@@ -23,10 +36,6 @@ function App() {
     {id: 3, name: "Lord of Rings", price: 450},
     {id: 4, name: "AOT Manga", price: 1050}
   ];
-
-  // Users component
-  const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => response.json());
 
     return (
       <>
@@ -57,8 +66,12 @@ function App() {
         {/* <Counter/> */}
         {/* <Batsman/> */}
 
-        <Suspense fallback={<h4>Users Are Loading</h4>}>
+        {/* <Suspense fallback={<h4>Users Are Loading</h4>}>
           <Users fetchUsers={fetchUsers} />
+        </Suspense> */}
+
+        <Suspense fallback={<h4>Friends Are Loading</h4>}>
+          <Friends friendsPromise={friendsPromise} />
         </Suspense>
       </>
     )
