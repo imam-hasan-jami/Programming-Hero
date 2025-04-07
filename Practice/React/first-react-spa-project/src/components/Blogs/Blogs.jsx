@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Blog from "../Blog/Blog";
 
-const Blogs = ({ blogsPromise }) => {
+const Blogs = ({ blogsPromise, handleBookmark }) => {
     const blogs = use(blogsPromise);
 
     return (
@@ -10,7 +10,11 @@ const Blogs = ({ blogsPromise }) => {
 
             <div className="all-blogs grid grid-cols-1 gap-7">
                 {blogs.map((blog) => (
-                    <Blog key={blog.id} blog={blog} />
+                    <Blog
+                        key={blog.id}
+                        blog={blog}
+                        handleBookmark={handleBookmark}
+                    />
                 ))}
             </div>
         </div>
