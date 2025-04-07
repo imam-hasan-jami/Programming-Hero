@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Blog from "../Blog/Blog";
 
-const Blogs = ({ blogsPromise, handleBookmark }) => {
+const Blogs = ({ blogsPromise, handleBookmark, handleMarkAsRead }) => {
     const blogs = use(blogsPromise);
 
     return (
@@ -14,6 +14,7 @@ const Blogs = ({ blogsPromise, handleBookmark }) => {
                         key={blog.id}
                         blog={blog}
                         handleBookmark={handleBookmark}
+                        handleMarkAsRead={handleMarkAsRead}
                     />
                 ))}
             </div>

@@ -11,9 +11,15 @@ const blogsPromise = fetchBlogs();
 
 function App() {
     const [bookmarked, setBookmarked] = useState([]);
+    const [readingTime, setReadingTime] = useState(0);
 
     const handleBookmark = (blog) => {
         setBookmarked([...bookmarked, blog]);
+    };
+
+    const handleMarkAsRead = (time) => {
+        const newTime = readingTime + time;
+        setReadingTime(newTime);
     };
 
     return (
@@ -26,12 +32,13 @@ function App() {
                         <Blogs
                             blogsPromise={blogsPromise}
                             handleBookmark={handleBookmark}
+                            handleMarkAsRead={handleMarkAsRead}
                         />
                     </Suspense>
                 </div>
                 <div className="right-container w-[30%]">
-                    <h1>Reading time: 0</h1>
-                    <h1>Bookmark count: 0</h1>
+                    <h1>Reading time: {readingTime}</h1>
+                    <h1>Bookmark count: {bookmarked.length}</h1>
 
                     {bookmarked.map((marked) => (
                         <p className="text-lg mt-4">{marked.title}</p>
