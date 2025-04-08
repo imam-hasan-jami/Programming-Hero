@@ -8,7 +8,7 @@ const Blogs = ({ blogsPromise, handleBookmark, handleMarkAsRead }) => {
         <div>
             <h1 className="text-2xl">Blogs: {blogs.length}</h1>
 
-            <div className="all-blogs grid grid-cols-1 gap-7">
+            <div className="all-blogs grid grid-cols-2 gap-7">
                 {blogs.map((blog) => (
                     <Blog
                         key={blog.id}
