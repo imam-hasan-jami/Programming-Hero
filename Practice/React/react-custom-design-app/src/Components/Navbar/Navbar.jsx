@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from './Link';
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 
 const navigationData = [
     {
@@ -30,8 +32,28 @@ const navigationData = [
 ];
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false);
+
+    const links = navigationData.map(route => <Link key={route.id} route={route} />);
+
     return (
-        <nav>
+        <nav className='flex justify-between mx-10 mt-4 items-center'>
+
+            <span className='flex items-center gap-5' onClick={() => setOpen(!open)}>
+                
+                {
+                    open ? <RxCross2 className='md:hidden' size={25} /> : <HiOutlineMenuAlt1 className='md:hidden' size={25} />
+                }
+
+                {/* showing nav urls for mobile devices */}
+                <ul className={`md:hidden absolute duration-1000 bg-gray-300 ${open ? 'top-15' : '-top-60'}`}>
+                    {
+                        links
+                    }
+                </ul>
+
+                <h3 className='font-bold text-2xl'>My Website</h3>
+            </span>
 
             {/* fixed url 👇 */}
             {/* <ul className='flex gap-10'>
@@ -49,11 +71,13 @@ const Navbar = () => {
             </ul> */}
 
             {/* dynamic url calling from different component */}
-            <ul className='flex gap-10'>
+            <ul className='md:flex hidden gap-10'>
                 {
-                    navigationData.map(route => <Link key={route.id} route={route} />)
+                    links
                 }
             </ul>
+
+            <button className='btn'>Sign Up</button>
         </nav>
     );
 };

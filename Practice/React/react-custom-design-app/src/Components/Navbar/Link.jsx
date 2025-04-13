@@ -2,9 +2,8 @@ import React from 'react';
 
 const Link = ({ route }) => {
     return (
-        <div>
-            <li><a href={route.path}>{route.name}</a></li>
-        </div>
+        
+        <li className='px-5 py-2'><a href={route.path}>{route.name}</a></li>
     );
 };
 

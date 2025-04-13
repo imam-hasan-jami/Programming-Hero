@@ -5,7 +5,7 @@ function App() {
     return (
         <>
             <Navbar />
-            <DaisyNavbar />
+            {/* <DaisyNavbar /> */}
             <h1>Hello World!</h1>
         </>
     );
