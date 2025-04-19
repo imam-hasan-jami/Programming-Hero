@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Special from './Special';
 import { AssetContext } from './FamilyTree';
+import Friend from './Friend';
 
 const Cousin = ({name, asset}) => {
     const newAsset = useContext(AssetContext);
@@ -15,6 +16,9 @@ const Cousin = ({name, asset}) => {
                 name === "Jamal" && (
                     <p>New Asset: {newAsset}</p>
                 )
+            }
+            {
+                name === "Karim" && <Friend />
             }
         </div>
     );
