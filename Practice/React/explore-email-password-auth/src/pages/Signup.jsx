@@ -1,4 +1,6 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
+import { auth } from '../firebase.init';
 
 const Signup = () => {
     const handleSignup = (e) => {
@@ -6,15 +8,24 @@ const Signup = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
+
+        // create user with email and password
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     return (
         <div>
-            <h1 className="text-center text-5xl mt-10 font-extrabold">
-                This is Signup
+            <h1 className="text-center text-5xl mt-20 font-extrabold">
+                Sign Up
             </h1>
 
-            <form onSubmit={handleSignup} className="flex flex-col items-center justify-center gap-4 mt-20 w-80 mx-auto">
+            <form onSubmit={handleSignup} className="flex flex-col items-center justify-center gap-4 mt-10 w-80 mx-auto">
                 {/* email field */}
                 <div className="w-full">
                     <div>
