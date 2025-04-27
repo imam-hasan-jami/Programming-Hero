@@ -35,8 +35,18 @@ const Login = () => {
     const handleGithubSignIn = () => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+
+                if (!loggedInUser?.email && loggedInUser?.providerData?.length > 0) {
+                    console.log("user email is not directly available");
+
+                    if (loggedInUser?.providerData[0]?.email) {
+                        setUser(loggedInUser);
+                    }
+                }
                 console.log(result);
-                setUser(result.user);
+                setUser(loggedInUser);
             })
             .catch(error => {
                 console.log(error);
