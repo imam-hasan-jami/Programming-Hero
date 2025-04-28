@@ -1,21 +1,36 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { auth } from '../firebase.init';
 
 const Signup = () => {
+    const [success, setSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+
     const handleSignup = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
 
+        setSuccess(false);
+        setErrorMsg("");
+
+        // validate and password
+        // const passwordRegExp = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        // if (!passwordRegExp.test(password)) {
+        //     setErrorMsg("Password must be more than 8 characters, including number, lowercase letter, uppercase letter");
+        //     return;
+        // }
+
         // create user with email and password
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 console.log(result);
+                setSuccess(true);
             })
             .catch((error) => {
                 console.log(error);
+                setErrorMsg(error.message);
             });
     }
 
@@ -111,6 +126,12 @@ const Signup = () => {
                 {/* submit button */}
                 <input className='btn btn-primary w-full' type="submit" value="Submit" />
             </form>
+            {
+                success && <p className='text-green-500 text-center font-semibold mt-5'>User has created successfully.</p>
+            }
+            {
+                errorMsg && <p className='text-red-500 text-center font-semibold mt-5'>{errorMsg}</p>
+            }
         </div>
     );
 };
