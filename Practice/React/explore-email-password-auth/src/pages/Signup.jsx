@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../firebase.init';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { Link } from 'react-router';
 
 const Signup = () => {
     const [success, setSuccess] = useState(false);
@@ -149,11 +150,7 @@ const Signup = () => {
                 </div>
 
                 <label className="label">
-                    <input
-                        type="checkbox"
-                        name='terms'
-                        className="checkbox"
-                    />
+                    <input type="checkbox" name="terms" className="checkbox" />
                     Accept Terms and Conditions
                 </label>
 
@@ -161,18 +158,26 @@ const Signup = () => {
                 <input
                     className="btn btn-primary w-full"
                     type="submit"
-                    value="Submit"
+                    value="Sign Up"
                 />
             </form>
+            <p className='text-center mt-5'>
+                Already have an account? Please
+                <Link className="text-blue-500 underline" to="/login">
+                    login.
+                </Link>
+            </p>
             {success && (
-                <p className="text-green-500 text-center font-semibold mt-5">
+                <p className="alert alert-success font-semibold w-80 mx-auto mt-5">
                     User has created successfully.
                 </p>
             )}
             {errorMsg && (
-                <p className="text-red-500 text-center font-semibold mt-5">
-                    {errorMsg}
-                </p>
+                <div className="alert alert-error font-semibold w-80 mx-auto shadow-lg mt-4">
+                    <div>
+                        <span>{errorMsg}</span>
+                    </div>
+                </div>
             )}
         </div>
     );
