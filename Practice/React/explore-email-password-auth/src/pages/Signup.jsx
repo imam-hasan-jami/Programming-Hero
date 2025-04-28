@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../firebase.init';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -11,6 +11,8 @@ const Signup = () => {
 
     const handleSignup = (e) => {
         e.preventDefault();
+        const name = e.target.name.value;
+        const photoURL = e.target.photoURL.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const terms = e.target.terms.checked;
@@ -45,6 +47,20 @@ const Signup = () => {
                         setSuccess(true);
                         alert("Verification email sent. Please check your inbox.");
                     })
+
+                // update user profile
+                const profile = {
+                    displayName: name,
+                    photoURL: photoURL,
+                }
+
+                updateProfile(auth.currentUser, profile)
+                    .then(() => {
+                        console.log("User profile updated");
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
             })
             .catch((error) => {
                 console.log(error);
@@ -62,36 +78,26 @@ const Signup = () => {
                 onSubmit={handleSignup}
                 className="flex flex-col items-center justify-center gap-4 mt-10 w-80 mx-auto"
             >
+                <input
+                    type="text"
+                    name="name"
+                    className="input"
+                    placeholder="Name"
+                />
+                <input
+                    type="text"
+                    name="photoURL"
+                    className="input"
+                    placeholder="Photo URL"
+                />
                 {/* email field */}
                 <div className="w-full">
                     <div>
                         <label className="input validator join-item">
-                            <svg
-                                className="h-[1em] opacity-50"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <g
-                                    strokeLinejoin="round"
-                                    strokeLinecap="round"
-                                    strokeWidth="2.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                >
-                                    <rect
-                                        width="20"
-                                        height="16"
-                                        x="2"
-                                        y="4"
-                                        rx="2"
-                                    ></rect>
-                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                                </g>
-                            </svg>
                             <input
                                 type="email"
                                 name="email"
-                                placeholder="mail@site.com"
+                                placeholder="Your Valid Email"
                                 required
                             />
                         </label>
@@ -104,27 +110,6 @@ const Signup = () => {
                 {/* password field */}
                 <div className="w-full">
                     <label className="input validator">
-                        <svg
-                            className="h-[1em] opacity-50"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                        >
-                            <g
-                                strokeLinejoin="round"
-                                strokeLinecap="round"
-                                strokeWidth="2.5"
-                                fill="none"
-                                stroke="currentColor"
-                            >
-                                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path>
-                                <circle
-                                    cx="16.5"
-                                    cy="7.5"
-                                    r=".5"
-                                    fill="currentColor"
-                                ></circle>
-                            </g>
-                        </svg>
                         <div className="">
                             <input
                                 type={showPassword ? "text" : "password"}
@@ -169,7 +154,7 @@ const Signup = () => {
                     value="Sign Up"
                 />
             </form>
-            <p className='text-center mt-5'>
+            <p className="text-center mt-5">
                 Already have an account? Please
                 <Link className="text-blue-500 underline" to="/login">
                     login.

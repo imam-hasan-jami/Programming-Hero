@@ -92,6 +92,18 @@ const Login = () => {
                         )
                     }
                     {
+                        success && (
+                            <div>
+                                {/* display user displayname and photourl */}
+                                <div className="flex justify-center items-center gap-4 mt-4">
+                                    <img src={auth.currentUser.photoURL} alt="" className="w-16 h-16 rounded-full" />
+                                    <h1 className="text-4xl font-bold">{auth.currentUser.displayName}</h1>
+                                </div>
+                                <p className="text-gray-500 text-center">{auth.currentUser.email}</p>
+                            </div>
+                        )
+                    }
+                    {
                         errorMsg && (
                             <div className="alert alert-error shadow-lg mt-4">
                                 <div>
