@@ -1,16 +1,19 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../firebase.init';
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Signup = () => {
     const [success, setSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSignup = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        const terms = e.target.terms.checked;
+        console.log(email, password, terms);
 
         setSuccess(false);
         setErrorMsg("");
@@ -21,6 +24,12 @@ const Signup = () => {
         //     setErrorMsg("Password must be more than 8 characters, including number, lowercase letter, uppercase letter");
         //     return;
         // }
+
+        // check if terms and conditions are accepted
+        if (!terms) {
+            setErrorMsg("You must accept the terms and conditions");
+            return;
+        }
 
         // create user with email and password
         createUserWithEmailAndPassword(auth, email, password)
@@ -40,7 +49,10 @@ const Signup = () => {
                 Sign Up
             </h1>
 
-            <form onSubmit={handleSignup} className="flex flex-col items-center justify-center gap-4 mt-10 w-80 mx-auto">
+            <form
+                onSubmit={handleSignup}
+                className="flex flex-col items-center justify-center gap-4 mt-10 w-80 mx-auto"
+            >
                 {/* email field */}
                 <div className="w-full">
                     <div>
@@ -81,7 +93,7 @@ const Signup = () => {
                 </div>
 
                 {/* password field */}
-                <div className='w-full'>
+                <div className="w-full">
                     <label className="input validator">
                         <svg
                             className="h-[1em] opacity-50"
@@ -104,15 +116,28 @@ const Signup = () => {
                                 ></circle>
                             </g>
                         </svg>
-                        <input
-                            type="password"
-                            name="password"
-                            required
-                            placeholder="Password"
-                            minLength="8"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
-                        />
+                        <div className="">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                required
+                                placeholder="Password"
+                                minLength="8"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+                            />
+                            <button
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                type="button"
+                                className="btn btn-ghost"
+                            >
+                                {showPassword ? (
+                                    <AiFillEyeInvisible />
+                                ) : (
+                                    <AiFillEye />
+                                )}
+                            </button>
+                        </div>
                     </label>
                     <p className="validator-hint hidden">
                         Must be more than 8 characters, including
@@ -123,15 +148,32 @@ const Signup = () => {
                     </p>
                 </div>
 
+                <label className="label">
+                    <input
+                        type="checkbox"
+                        name='terms'
+                        className="checkbox"
+                    />
+                    Accept Terms and Conditions
+                </label>
+
                 {/* submit button */}
-                <input className='btn btn-primary w-full' type="submit" value="Submit" />
+                <input
+                    className="btn btn-primary w-full"
+                    type="submit"
+                    value="Submit"
+                />
             </form>
-            {
-                success && <p className='text-green-500 text-center font-semibold mt-5'>User has created successfully.</p>
-            }
-            {
-                errorMsg && <p className='text-red-500 text-center font-semibold mt-5'>{errorMsg}</p>
-            }
+            {success && (
+                <p className="text-green-500 text-center font-semibold mt-5">
+                    User has created successfully.
+                </p>
+            )}
+            {errorMsg && (
+                <p className="text-red-500 text-center font-semibold mt-5">
+                    {errorMsg}
+                </p>
+            )}
         </div>
     );
 };
