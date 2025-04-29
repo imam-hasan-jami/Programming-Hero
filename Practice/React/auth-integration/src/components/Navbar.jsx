@@ -5,13 +5,13 @@ const Navbar = () => {
     const links = (
         <>
             <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/">Home</NavLink>
             </li>
             <li>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/login">Login</NavLink>
             </li>
             <li>
-                <NavLink to="/signup">Signup</NavLink>
+                <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/signup">Signup</NavLink>
             </li>
         </>
     );
