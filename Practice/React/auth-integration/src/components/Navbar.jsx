@@ -26,6 +26,16 @@ const Navbar = () => {
             <li>
                 <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/signup">Signup</NavLink>
             </li>
+            {
+                user && <>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/orders">Orders</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/profile">Profile</NavLink>
+                    </li>
+                </>
+            }
         </>
     );
 
