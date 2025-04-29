@@ -5,16 +5,21 @@ import { auth } from "../firebase.init";
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const signOutUser = () => {
+        setLoading(false);
+        setUser(null);
         return signOut(auth);
     }
 
@@ -31,8 +36,10 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 console.log('User is signed in:', currentUser);
                 setUser(currentUser);
+                setLoading(false);
             } else {
                 console.log('No user is signed in');
+                setLoading(false);
             }
         });
 
@@ -45,6 +52,7 @@ const AuthProvider = ({ children }) => {
 
     const userInfo = {
         user,
+        loading,
         createUser,
         logInUser,
         signOutUser,

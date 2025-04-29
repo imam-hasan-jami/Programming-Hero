@@ -1,14 +1,16 @@
 import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 
 const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
         signOutUser()
             .then(() => {
                 console.log('User signed out');
+                navigate("/login");
             })
             .catch((error) => {
                 console.error('Error signing out:', error);
@@ -25,6 +27,9 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/signup">Signup</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) => isActive ? "bg-blue-500 text-black" : ""} to="/dashboard">Dashboard</NavLink>
             </li>
             {
                 user && <>
