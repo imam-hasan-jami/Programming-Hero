@@ -3,7 +3,17 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 
 const Navbar = () => {
-    const { user } = use(AuthContext);
+    const { user, signOutUser } = use(AuthContext);
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                console.log('User signed out');
+            })
+            .catch((error) => {
+                console.error('Error signing out:', error);
+            });
+    }
 
     const links = (
         <>
@@ -54,14 +64,19 @@ const Navbar = () => {
                 <a className="btn btn-ghost text-xl">daisyUI</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {links}
-                </ul>
+                <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-                {
-                    user ? <a className="btn">{user.email} || Sign Out</a> : <Link to="/login">Login</Link>
-                }
+                {user ? (
+                    <div className='flex items-center gap-4'>
+                        <p>{user.email}</p>
+                        <a onClick={handleSignOut} className="btn">
+                            Sign Out
+                        </a>
+                    </div>
+                ) : (
+                    <Link to="/login">Login</Link>
+                )}
             </div>
         </div>
     );
