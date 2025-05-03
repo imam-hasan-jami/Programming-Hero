@@ -2,6 +2,9 @@ import React from 'react';
 import Header from '../components/Header';
 import LatestNews from '../components/LatestNews';
 import Navbar from '../components/Navbar';
+import { Outlet } from 'react-router';
+import LeftAside from '../components/homelayout/LeftAside';
+import RightAside from '../components/homelayout/RightAside';
 
 const HomeLayout = () => {
     return (
@@ -15,10 +18,16 @@ const HomeLayout = () => {
                     <Navbar />
                 </nav>
             </header>
-            <main>
-                <aside></aside>
-                <section></section>
-                <aside></aside>
+            <main className='w-11/12 mx-auto my-5 grid grid-cols-12 gap-5'>
+                <aside className='col-span-3'>
+                    <LeftAside />
+                </aside>
+                <section className='col-span-6'>
+                    <Outlet />
+                </section>
+                <aside className='col-span-3'>
+                    <RightAside />
+                </aside>
             </main>
         </div>
     );
