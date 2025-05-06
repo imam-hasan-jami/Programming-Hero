@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import userIcon from "../assets/user.png";
 import { AuthContext } from '../provider/AuthContext';
 
@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-5">
           <img src={userIcon} alt="" />
-          <button className="btn btn-primary px-10">Login</button>
+          <Link to="/auth/login" className="btn btn-primary px-10">Login</Link>
         </div>
       </div>
     );
