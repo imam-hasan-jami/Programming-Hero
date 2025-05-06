@@ -5,6 +5,7 @@ import CategoryNews from "../pages/CategoryNews";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import NewsDetails from "../pages/NewsDetails";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,15 @@ const router = createBrowserRouter([
             Component: Register,
         }
     ]
+  },
+  {
+    path: "/news-details/:id",
+    Component: NewsDetails,
+    loader: () => fetch("/news.json"),
+  },
+  {
+    path: "/*",
+    element: <div className="text-center text-3xl font-bold">404 Not Found</div>,
   }
 ]);
 
