@@ -31,22 +31,41 @@ const Users = ({ usersPromise }) => {
             })
     }
 
-    return (
-        <div>
-            <form onSubmit={handleAddUser}>
-                <input type="text" name='name' placeholder='Name' />
-                <br />
-                <input type="email" name='email' placeholder='Email' />
-                <br />
-                <input type="submit" value="Add User" />
-            </form>
+    const handleDeleteUser = (id) => {
+      // console.log("button clicked", id);
+      fetch(`http://localhost:3000/users/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.deletedCount) {
+                const remainingUsers = users.filter(user => user._id !== id);
+                setUsers(remainingUsers);
+                console.log("after delete user", data);
+            }
+        });
+    };
 
-            <div>
-                {
-                    users.map(user => <p key={user._id}>{user.name} : {user.email}</p>)
-                }
-            </div>
+    return (
+      <div>
+        <h1>Total Users: {users.length}</h1>
+        <form onSubmit={handleAddUser}>
+          <input type="text" name="name" placeholder="Name" />
+          <br />
+          <input type="email" name="email" placeholder="Email" />
+          <br />
+          <input type="submit" value="Add User" />
+        </form>
+
+        <div>
+          {users.map((user) => (
+            <p key={user._id}>
+              {user.name} : {user.email}
+              <button onClick={() => handleDeleteUser(user._id)}>X</button>
+            </p>
+          ))}
         </div>
+      </div>
     );
 };
 
