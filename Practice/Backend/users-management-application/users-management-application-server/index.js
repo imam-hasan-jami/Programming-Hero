@@ -28,6 +28,12 @@ async function run() {
         const database = client.db('usersDB');
         const usersCollection = database.collection('users');
 
+        app.get('/users', async(req, res) => {
+            const cursor = usersCollection.find();
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
         app.post("/users", async(req, res) => {
           console.log('data in the server', req.body);
           const newUser = req.body;
@@ -49,15 +55,15 @@ app.get('/', (req, res) => {
     res.send('Users Management Server is Running');
 })
 
-const users = [
-    { id: 1, name: 'Sabana', email: 'sabana@gmail.com' },
-    { id: 2, name: 'Sabnoor', email: 'Sabnoor@gmail.com' },
-    { id: 3, name: 'Sabila', email: 'sabila@gmail.com' },
-]
+// const users = [
+//     { id: 1, name: 'Sabana', email: 'sabana@gmail.com' },
+//     { id: 2, name: 'Sabnoor', email: 'Sabnoor@gmail.com' },
+//     { id: 3, name: 'Sabila', email: 'sabila@gmail.com' },
+// ]
 
-app.get('/users', (req, res) => {
-    res.send(users);
-})
+// app.get('/users', (req, res) => {
+//     res.send(users);
+// })
 
 // app.post('/users', (req, res) => {
 //     const newUser = req.body;
