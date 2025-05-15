@@ -8,7 +8,7 @@ const Users = ({ usersPromise }) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
-        const user = { name, email };
+        const newUser = { name, email };
 
         //create user in the server
         fetch('http://localhost:3000/users', {
@@ -16,14 +16,18 @@ const Users = ({ usersPromise }) => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(newUser)
         })
             .then(res => res.json())
             .then(data => {
                 console.log('new user from server', data);
-                const newUsers = [...users, data];
-                setUsers(newUsers);
-                e.target.reset();
+                if (data.insertedId) {
+                    newUser._id = data.insertedId;
+                    const newUsers = [...users, newUser];
+                    setUsers(newUsers);
+                    alert("User added successfully");
+                    e.target.reset();
+                }
             })
     }
 
@@ -39,7 +43,7 @@ const Users = ({ usersPromise }) => {
 
             <div>
                 {
-                    users.map(user => <p key={user.id}>{user.name} : {user.email}</p>)
+                    users.map(user => <p key={user._id}>{user.name} : {user.email}</p>)
                 }
             </div>
         </div>
