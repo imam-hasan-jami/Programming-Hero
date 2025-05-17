@@ -52,7 +52,7 @@ const CoffeeCard = ({ coffees, setCoffees, coffee }) => {
             <Link to={`/coffee/${_id}`}>
               <button className="btn join-item">View</button>
             </Link>
-            <Link to={`/updateCoffee/${_id}`}>
+            <Link to={`/update-coffee/${_id}`}>
               <button className="btn join-item">Edit</button>
             </Link>
             <button onClick={() => handleDelete(_id)} className="btn join-item">
