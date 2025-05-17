@@ -1,12 +1,40 @@
 import React from "react";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffees, setCoffees, coffee }) => {
   const { _id, name, price, quantity, photo } = coffee;
 
   const handleDelete = (_id) => {
-    
-  }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:3000/coffees/${_id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        Swal.fire({
+                          title: "Deleted!",
+                          text: "Your Coffee has been deleted.",
+                          icon: "success",
+                        });
+
+                        const remainingCoffees = coffees.filter(cof => cof._id !== _id);
+                        setCoffees(remainingCoffees);
+                    }
+                })
+        }
+    })
+  };
 
   return (
     <div className="card card-side bg-base-100 shadow-sm border-2">
