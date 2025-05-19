@@ -6,6 +6,7 @@ const Navbar = () => {
         <div className='navbar flex justify-center items-center gap-4 bg-base-300'>
             <Link to='/'>Home</Link>
             <Link to='/add-coffee'>Add Coffee</Link>
+            <Link to='/users'>Users</Link>
             <Link to='/registration'>Registration</Link>
             <Link to='/login'>Login</Link>
         </div>

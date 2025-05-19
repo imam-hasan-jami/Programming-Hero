@@ -6,6 +6,7 @@ import CoffeeDetails from "../components/CoffeeDetails";
 import UpdateCoffee from "../components/UpdateCoffee";
 import Registration from "../components/Registration";
 import Login from "../components/Login";
+import Users from "../components/Users";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
         {
             path: '/login',
             Component: Login,
+        },
+        {
+            path: '/users',
+            loader: () => fetch('http://localhost:3000/users'),
+            hydrateFallbackElement: <div>Loading...</div>,
+            Component: Users,
         }
     ]
   },
