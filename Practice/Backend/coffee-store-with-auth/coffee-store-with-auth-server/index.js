@@ -19,10 +19,21 @@ app.use(cookieParser());
 
 const verifyToken = (req, res, next) => {
   const token = req?.cookies?.token;
-  console.log('cookie in the middleware', token);
+  console.log("cookie in the middleware", token);
 
-  next();
-}
+  if (!token) {
+    return res.status(401).send({ message: "Unauthorized access" });
+  }
+
+  // verify the token
+  jwt.verify(token, process.env.JWT_ACCESS_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized access" });
+    }
+    req.decoded = decoded;
+    next();
+  });
+};
 
 // 6uIUWUOvcpedNvNR
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.lqn2pwg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -124,7 +135,11 @@ async function run() {
     app.get("/users/:email", verifyToken, async (req, res) => {
       const email = req.params.email;
 
-      console.log('inside users api', req.cookies);
+      // console.log('inside users api', req.cookies);
+      
+      if (email !== req.decoded.email) {
+        return res.status(403).send({ message: "Forbidden access" });
+      }
 
       const query = { email: email };
       const user = await usersCollection.findOne(query);
