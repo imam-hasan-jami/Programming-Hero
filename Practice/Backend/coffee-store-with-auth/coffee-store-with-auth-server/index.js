@@ -15,6 +15,14 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(cookieParser());
+
+const verifyToken = (req, res, next) => {
+  const token = req?.cookies?.token;
+  console.log('cookie in the middleware', token);
+
+  next();
+}
 
 // 6uIUWUOvcpedNvNR
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.lqn2pwg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -112,6 +120,16 @@ async function run() {
       const result = await usersCollection.find().toArray();
       res.send(result);
     })
+
+    app.get("/users/:email", verifyToken, async (req, res) => {
+      const email = req.params.email;
+
+      console.log('inside users api', req.cookies);
+
+      const query = { email: email };
+      const user = await usersCollection.findOne(query);
+      res.send(user);
+    });
 
     app.post('/users', async(req, res) => {
         const userProfile = req.body;
