@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
@@ -7,7 +8,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // 6uIUWUOvcpedNvNR
@@ -28,11 +34,25 @@ async function run() {
     const usersCollection = client.db('coffeeStoreDB').collection('users');
 
     // jwt related api
+    // app.post("/jwt", async (req, res) => {
+    //   const { email } = req.body;
+    //   const user = { email };
+    //   const token = jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: "1h" });
+    //   res.send({ token });
+    // });
+
     app.post("/jwt", async (req, res) => {
-      const { email } = req.body;
-      const user = { email };
-      const token = jwt.sign(user, "secret", { expiresIn: "1h" });
-      res.send({ token });
+      const userData = req.body;
+      const token = jwt.sign(userData, process.env.JWT_ACCESS_SECRET, {
+        expiresIn: "1h",
+      });
+
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: false, // Set to true if using HTTPS
+      })
+
+      res.send({ success: true });
     });
 
     app.get('/coffees', async(req, res) => {
