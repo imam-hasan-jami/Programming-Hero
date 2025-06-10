@@ -7,6 +7,7 @@ import UpdateCoffee from "../components/UpdateCoffee";
 import Registration from "../components/Registration";
 import Login from "../components/Login";
 import Users from "../components/Users";
+import SingleUser from "../components/SingleUser";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
             loader: () => fetch('http://localhost:3000/users'),
             hydrateFallbackElement: <div>Loading...</div>,
             Component: Users,
+        },
+        {
+            path: '/users/:email',
+            loader: ({ params }) => fetch(`http://localhost:3000/users/${params.email}`, {
+                credentials: 'include',
+            }),
+            hydrateFallbackElement: <div>Loading...</div>,
+            Component: SingleUser,
         }
     ]
   },
