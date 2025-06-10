@@ -29,11 +29,13 @@ const AuthProvider = ({ children }) => {
         if (currentUser?.email) {
           const userData = { email: currentUser.email };
           axios
-            .post("http://localhost:3000/jwt", userData)
+            .post("http://localhost:3000/jwt", userData, {
+                withCredentials: true
+            })
             .then((res) => {
               console.log("token after login jwt", res.data);
-              const token = res.data.token;
-              localStorage.setItem("access-token", token);
+            //   const token = res.data.token;
+            //   localStorage.setItem("access-token", token);
             })
             .catch((error) => {
               console.log(error);
