@@ -11,13 +11,13 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/about" className="text-blue-500 hover:underline">
-              About
+            <a href="/services" className="text-blue-500 hover:underline">
+              Services
             </a>
           </li>
           <li>
-            <a href="/contact" className="text-blue-500 hover:underline">
-              Contact
+            <a href="/about" className="text-blue-500 hover:underline">
+              About
             </a>
           </li>
           <li>
